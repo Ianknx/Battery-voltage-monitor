@@ -62,9 +62,6 @@ ReactESP app([]() {
 
 
  
-  // - VoltageMultiplier() reverses the effect of the physical voltage divider
-  //   that was used to step the source voltage down to less than 5 volts, which is
-  //   the maximum the ADC can read. The output is the original voltage.
   
   
   // To find valid Signal K Paths that fits your need you look at this link:
