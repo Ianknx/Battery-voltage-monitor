@@ -21,8 +21,8 @@
 
 maximum Input voltage of this NodeMCU (ESP8266) is 5 volts DC,
 
-First we need to calculate the output voltage of the Voltage divider when the 
-input supply voltage is 5V volts, we will use 14V as the Vin to allow for a fully charged battery which can be as high as 13.8v
+First we need to calculate the output voltage of the Voltage divider when the input supply is 14 volts, we use 14 Volts as a fully charged battery can be as high as 13.8Volts
+
 ==================================
 
 Vin = 14V
@@ -33,7 +33,7 @@ r2 = 7500 ohm
 
 
 Vout = ( r2  x  Vin ) / ( r1 + r2) 
-=====================================
+=====================================![image](https://user-images.githubusercontent.com/31249487/108537105-1f14f600-72d5-11eb-9363-faca3b39ff1e.png)
 
 Vout = (7500 x 14) / (30000 + 7500) 
        = 105000 / 37500
