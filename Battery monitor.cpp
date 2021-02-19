@@ -1,6 +1,7 @@
-// ADS 1x115 4 channel Battery voltage
+// ADS 1115 4 channel Battery voltage monitor
 
 #include <Arduino.h>
+
 
 //#define SERIAL_DEBUG_DISABLED
 
