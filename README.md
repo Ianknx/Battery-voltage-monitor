@@ -11,8 +11,7 @@
   
   Example of Voltage Divider
 
-  ![image](https://user-images.githubusercontent.com/31249487/108519770-e0297500-72c1-11eb-8fbb-234a1a7956ee.png)![image](https://user-images.githubusercontent.com/31249487/108537105-1f14f600-72d5-11eb-9363-faca3b39ff1e.png)
-  
+  ![image](https://user-images.githubusercontent.com/31249487/108519770-e0297500-72c1-11eb-8fbb-234a1a7956ee.png)
   
   
  A Voltage divider simply consists of two resistors connected in series. As you can see the resistors values used in this module are 30k and 7.5k.
