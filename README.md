@@ -32,16 +32,14 @@ R1 = 30000 ohm
 r2 = 7500 ohm
 
 
-Vout = ( r2  x  Vin ) / ( r1 + r2) 
-=====================================![image](https://user-images.githubusercontent.com/31249487/108537105-1f14f600-72d5-11eb-9363-faca3b39ff1e.png)
+ >Vout = ( r2  x  Vin ) / ( r1 + r2) 
+ >Vout = (7500 x 14) / (30000 + 7500) 
+ >     = 105000 / 37500
+ >      =
+ >Vout  = 3.47 Volts at 14 Volt
+ >      = 2.4 Volts at 12 Volt
 
-Vout = (7500 x 14) / (30000 + 7500) 
-       = 105000 / 37500
-       =
-Vout = 3.47 Volts at 14 Volt
-     = 2.4 Volts at 12Volt
-
-So this Voltage divider can be used with the ADS 1115 (2V to 5v)and NodeMCU (3.3 or 5V) without any problem, the ESP8266 is a 3.3v microcontroller, applying more than 3.6v on any pin can damage the chip.
-
+>So this Voltage divider can be used with the ADS 1115 (2V to 5v)and NodeMCU (3.3 or 5V) without any problem, the ESP8266 is a 3.3v microcontroller, applying more than 3.6v on any pin can damage the chip.
+>
  Always try to keep the input Voltage to the Voltage divider below 18 volts, using the above formula 18 volts will give 3.6 volts.
  =================================================================================================================================
