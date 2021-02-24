@@ -1,7 +1,6 @@
-// ADS 1115 4 channel Battery voltage monitor
+// ADS 1x115 4 channel Battery voltage
 
 #include <Arduino.h>
-
 
 //#define SERIAL_DEBUG_DISABLED
 
@@ -34,7 +33,11 @@ ReactESP app([]() {
   ADS1x15Channel_t channel_12V2 = channel_2;
   ADS1x15Channel_t channel_12V3 = channel_3;
 
+   int capacitor1 = 30000;
+   int capacitor2 = 7500;
 
+
+   
   // Set time for taking readings from batteries, can be incresed or decreased as neccesary
   uint read_delay_12V = 5000;
 
@@ -45,24 +48,26 @@ ReactESP app([]() {
      // *****  DO NOT ATTACH DIRECT TO 12V SUPPLY******
      //**********************************************************
 
-
 // Battery 1
-   auto* alt_12v_voltage = new ADS1115Voltage(ads1115, channel_12V, read_delay_12V,
-                                             "/12V_Alt/ADC read delay");
+   auto* bat_12v_voltage = new ADS1115Voltage(ads1115, channel_12V, read_delay_12V,
+                                             "/12V_Bat/ADC read delay");
 
 //Battery 2
-  auto* alt_12v1_voltage = new ADS1115Voltage(ads1115, channel_12V1, read_delay_12V,
-                                             "/12V_Alt/ADC read delay");
+  auto* bat_12v1_voltage = new ADS1115Voltage(ads1115, channel_12V1, read_delay_12V,
+                                             "/12V_Bat/ADC read delay");
 //Battery 3
-  auto* alt_12v2_voltage = new ADS1115Voltage(ads1115, channel_12V2, read_delay_12V,
-                                             "/12V_Alt/ADC read delay");
+  auto* bat_12v2_voltage = new ADS1115Voltage(ads1115, channel_12V2, read_delay_12V,
+                                             "/12V_Bat/ADC read delay");
 
 //Battery 4
-  auto* alt_12v3_voltage = new ADS1115Voltage(ads1115, channel_12V3, read_delay_12V,
-                                             "/12V_Alt/ADC read delay");
+  auto* bat_12v3_voltage = new ADS1115Voltage(ads1115, channel_12V3, read_delay_12V,
+                                             "/12V_Bat/ADC read delay");
 
 
  
+  // - VoltageMultiplier() reverses the effect of the physical voltage divider
+  //   that was used to step the source voltage down to less than 5 volts, which is
+  //   the maximum the ADC can read. The output is the original voltage.
   
   
   // To find valid Signal K Paths that fits your need you look at this link:
@@ -71,33 +76,33 @@ ReactESP app([]() {
 
   //Battery1
 
-       alt_12v_voltage->connect_to(new VoltageMultiplier(
-                                  10000, 4730,                
+       bat_12v_voltage->connect_to(new VoltageMultiplier(
+                                      capacitor1, capacitor2,           
                                   "/12V_Alt/VoltMultiplier")) 
-      ->connect_to(new SKOutputNumber("electrical.battery 1.voltage",
-                                      "/12V_Alt/skPath"));
+      ->connect_to(new SKOutputNumber("electrical.battery1.voltage",
+                                      "/12V_Bat/skPath"));
 
 
-       alt_12v1_voltage->connect_to(new VoltageMultiplier(
-                                  10000, 4730,                
+       bat_12v1_voltage->connect_to(new VoltageMultiplier(
+                                  capacitor1, capacitor2,               
                                   "/12V_Alt/VoltMultiplier")) 
-      ->connect_to(new SKOutputNumber("electrical.battery 2.voltage",
-                                      "/12V1_Alt/skPath"));
+      ->connect_to(new SKOutputNumber("electrical.battery2.voltage",
+                                      "/12V_Bat/skPath"));
                                
 
-      alt_12v2_voltage->connect_to(new VoltageMultiplier(
-                                  10000, 4730,                
+      bat_12v2_voltage->connect_to(new VoltageMultiplier(
+                                  capacitor1, capacitor2,                
                                   "/12V_Alt/VoltMultiplier")) 
-      ->connect_to(new SKOutputNumber("electrical.battery 3.voltage",
-                                      "/12V1_Alt/skPath"));
+      ->connect_to(new SKOutputNumber("electrical.battery3.voltage",
+                                      "/12V_Bat/skPath"));
 
 
-      alt_12v3_voltage->connect_to(new VoltageMultiplier(
-                                  10000, 4730,
+      bat_12v3_voltage->connect_to(new VoltageMultiplier(
+                                capacitor1, capacitor2,
                                              
                                   "/12V_Alt/VoltMultiplier")) 
-      ->connect_to(new SKOutputNumber("electrical.battery 4.voltage",
-                                      "/12V1_Alt/skPath"));
+      ->connect_to(new SKOutputNumber("electrical.battery4.voltage",
+                                      "/12V_Bat/skPath"));
                                
 
 
@@ -107,6 +112,3 @@ ReactESP app([]() {
 
   sensesp_app->enable();
 });
-
-
-
