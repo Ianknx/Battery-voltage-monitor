@@ -6,7 +6,7 @@
 
   Using ESP8266 wifi module with ADS1115 ADC and output to Signal K.
 
-  To be continued.......
+  To be continued......
   
   
   Example of Voltage Divider
@@ -39,7 +39,7 @@ r2 = 7500 ohm
  >Vout  = 3.47 Volts at 14 Volt
  >      = 2.4 Volts at 12 Volt
 
->So this Voltage divider can be used with the ADS 1115 (2V to 5v)and NodeMCU (3.3 or 5V) without any problem, the ESP8266 is a 3.3v microcontroller, applying more than 3.6v on any pin can damage the chip.
+>So this Voltage divider can be used with the ADS 1115 (2V to 5v)and NodeMCU  (3.3 or 5V) without any problem, the ESP8266 is a 3.3v microcontroller, applying more than 3.6v on any pin can damage the chip.
 >
  >Always try to keep the input Voltage to the Voltage divider below >18 volts, using the above formula 18 volts will give 3.6 volts.
  =================================================================================================================================
