@@ -33,7 +33,6 @@ r2 = 7500 ohm
 
 
 Vout = ( r2  x  Vin ) / ( r1 + r2) 
-=====================================![image](https://user-images.githubusercontent.com/31249487/108537105-1f14f600-72d5-11eb-9363-faca3b39ff1e.png)
 
 Vout = (7500 x 14) / (30000 + 7500) 
        = 105000 / 37500
